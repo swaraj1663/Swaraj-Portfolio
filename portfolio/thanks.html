@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Received Submission</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!--favicon.io-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <style>
+        #timer {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <h1 class="text-center">Successfully submitted form</h1>
+            <p class="text-center"><b>Please check your <span id="userEMailID"></span> mail Inbox 📫</b>, for a copy of
+                your response.<br>If not
+                received, please check <b>spam</b> folder.</p>
+            <p class="text-center">Regards<br><b>M B C Swaraj</b> 😎</p>
+            <p class="mt-2 text-center">Auto redirect in <span id="timer"></span>s or <a href="./index.html">
+                    Click
+                    here to Redirect</a></p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script>
+        var now = 30;
+        var timer = setInterval(() => {
+            document.getElementById('timer').innerHTML = now;
+            now -= 1;
+            if (now < 1) {
+                clearInterval(timer);
+                window.location.replace('./index.html');
+            }
+        }, 1000);
+        if (localStorage.getItem('userEmail') !== null) {
+            document.getElementById('userEMailID').innerHTML = localStorage.getItem('userEmail');
+        }
+    </script>
+</body>
+
+</html>
